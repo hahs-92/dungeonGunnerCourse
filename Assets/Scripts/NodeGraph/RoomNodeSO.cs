@@ -17,6 +17,8 @@ public class RoomNodeSO : ScriptableObject
     // the following code oshould be run in the unity editor
 #if UNITY_EDITOR
     [HideInInspector] public Rect rect;
+    [HideInInspector] public bool isLeftClickDragging = false;
+    [HideInInspector] public bool isSelected = false;
 
     /// <summary>
     /// Initilize code
@@ -76,6 +78,89 @@ public class RoomNodeSO : ScriptableObject
         }
 
         return roomArray;
+    }
+
+    public void ProcessEvents(Event currentEvent)
+    {
+        switch (currentEvent.type)
+        {
+            case EventType.MouseDown:
+                ProcessMouseDownEvent(currentEvent);
+                break;
+            case EventType.MouseUp:
+                ProcessMouseUpEvent(currentEvent);
+                break;
+            case EventType.MouseDrag:
+                ProcessMouseDragEvent(currentEvent);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ProcessMouseDownEvent(Event currentEvent)
+    {
+        // left click  down
+        if(currentEvent.button == 0)
+        {
+            ProcessLeftClickDownEvent();
+        }
+    }
+
+    private void ProcessLeftClickDownEvent()
+    {
+        // esta linea permite que cuando en el editor
+        // seleccionemos un Node, este se active, indicando cual esta siendo seleccioando
+        Selection.activeObject = this;
+
+        //Toglee node selection
+        if(isSelected == true)
+        {
+            isSelected= false;
+        } else
+        {
+            isSelected= true;
+        }
+    }
+
+    private void ProcessMouseUpEvent(Event currentEvent)
+    {
+        // If left click up
+        if(currentEvent.button == 0)
+        {
+            ProcessLeftClickUpEvent();
+        }
+    }
+
+    private void ProcessLeftClickUpEvent()
+    {
+       if(isLeftClickDragging)
+       {
+            isLeftClickDragging= false;
+       }
+    }
+
+    private void ProcessMouseDragEvent(Event currentEvent)
+    {
+        // process left click grag event
+        if(currentEvent.button == 0)
+        {
+            ProcessLeftMouseDragEvent(currentEvent);
+        }
+    }
+
+    private void ProcessLeftMouseDragEvent(Event currentEvent)
+    {
+        isLeftClickDragging = true;
+
+        DragNode(currentEvent.delta);
+        GUI.changed = true;
+    }
+
+    private void DragNode(Vector2 delta)
+    {
+        rect.position += delta;
+        EditorUtility.SetDirty(this);
     }
 
 #endif
