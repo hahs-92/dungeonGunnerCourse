@@ -185,18 +185,94 @@ public class RoomNodeSO : ScriptableObject
     /// </summary>
    public bool AddChildRoomNodeIDToRoomNode(string childID)
    {
-        childRoomNodeIDlist.Add(childID);
-        return true;
-   } 
-    
+        if(IsChildRoomValid(childID))
+        {
+            childRoomNodeIDlist.Add(childID);
+            return true;
+        }
+
+        return false;
+   }
+
     /// <summary>
     /// Add parentID to the node (returns true if node has been added, false otherwise)
     /// </summary>
-   public bool AddParentRoomNodeIDToRoomNode(string parentID)
-   {
+    public bool AddParentRoomNodeIDToRoomNode(string parentID)
+    {
         parentRoomNodeIDList.Add(parentID);
         return true;
-   }
+    }
+
+    private bool IsChildRoomValid(string childID)
+    {
+        bool isConnectedBossNodeAlready = false;
+
+        foreach(RoomNodeSO roomNode in roomNodeGraph.roomNodelist)
+        {
+            if(roomNode.roomNodeType.isBossRoom && roomNode.parentRoomNodeIDList.Count > 0) 
+            {
+                isConnectedBossNodeAlready= true;
+            }
+        }
+
+        if(roomNodeGraph.GetRoomNode(childID).roomNodeType.isBossRoom && isConnectedBossNodeAlready)
+        {
+            return false;
+        }
+
+        if(roomNodeGraph.GetRoomNode(childID).roomNodeType.isNone)
+        {
+            return false;
+        }
+
+        if(childRoomNodeIDlist.Contains(childID))
+        {
+            return false;
+        }
+
+        if(id == childID)
+        {
+            return false;
+        }
+
+        if(parentRoomNodeIDList.Contains(childID)) {
+            return false;
+        }
+            
+        if(roomNodeGraph.GetRoomNode(childID).parentRoomNodeIDList.Count > 0)
+        {
+            return false;
+        }
+
+        if (roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && roomNodeType.isCorridor)
+        {
+            return false;
+        }
+
+        if (!roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && !roomNodeType.isCorridor)
+        {
+            return false;
+        }
+
+        // settings is nuestra clase, donde guardamos las variables de configuration
+        if(roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && childRoomNodeIDlist.Count >= Settings.maxChildCorridors)
+        {
+            return false;
+        }
+
+        if(roomNodeGraph.GetRoomNode(childID).roomNodeType.isEntrance)
+        {
+            return false;
+        }
+
+        if(!roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && childRoomNodeIDlist.Count > 0)
+        {
+            return false;
+        }
+
+        return true;
+
+    }
 
 #endif
     #endregion

@@ -30,6 +30,16 @@ public class RoomNodeGraphSO : ScriptableObject
         }
     }
 
+    public RoomNodeSO GetRoomNode(string roomNodeID)
+    {
+        if(roomNodeDictionary.TryGetValue(roomNodeID, out RoomNodeSO roomNode)) 
+        {
+            return roomNode;
+        }
+
+        return null;
+    }
+
     #region Editor Code
 
     // the following code should only run in the unity Editor
