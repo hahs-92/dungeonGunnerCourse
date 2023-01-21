@@ -255,6 +255,7 @@ public class RoomNodeSO : ScriptableObject
         }
 
         // settings is nuestra clase, donde guardamos las variables de configuration
+        // no pueden haber mas de 3 corredores por entrada
         if(roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && childRoomNodeIDlist.Count >= Settings.maxChildCorridors)
         {
             return false;
