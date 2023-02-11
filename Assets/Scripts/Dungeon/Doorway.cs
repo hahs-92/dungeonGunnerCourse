@@ -1,27 +1,22 @@
-using UnityEngine;
+﻿using UnityEngine;
 [System.Serializable]
-
-public class Doorway
+public class Doorway 
 {
-    public Vector2 position;
+    public Vector2Int position;
     public Orientation orientation;
     public GameObject doorPrefab;
-
     #region Header
     [Header("The Upper Left Position To Start Copying From")]
     #endregion
     public Vector2Int doorwayStartCopyPosition;
-
     #region Header
-    [Header("The Widht of titles i the doorway to copy over")]
+    [Header("The width of tiles in the doorway to copy over")]
     #endregion
-    public int doorwayCopyTitleWidth;
-
+    public int doorwayCopyTileWidth;
     #region Header
-    [Header("The height of titles i the doorway to copy over")]
+    [Header("The height of tiles in the doorway to copy over")]
     #endregion
-    public int doorwayCopyTitleHeight;
-
+    public int doorwayCopyTileHeight;
     [HideInInspector]
     public bool isConnected = false;
     [HideInInspector]
