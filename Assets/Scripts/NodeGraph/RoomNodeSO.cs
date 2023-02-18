@@ -250,7 +250,7 @@ public class RoomNodeSO : ScriptableObject
     {
         bool isConnectedBossNodeAlready = false;
 
-        foreach(RoomNodeSO roomNode in roomNodeGraph.roomNodelist)
+        foreach(RoomNodeSO roomNode in roomNodeGraph.roomNodeList)
         {
             if(roomNode.roomNodeType.isBossRoom && roomNode.parentRoomNodeIDList.Count > 0) 
             {

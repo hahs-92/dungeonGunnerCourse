@@ -196,11 +196,11 @@ public class RoomNodeGraphEditor : EditorWindow
     /// </summary>
     private RoomNodeSO IsMouseOverRoomNode(Event currentEvent)
     {
-        for (int i = currentRoomNodeGraph.roomNodelist.Count -1; i >= 0; i--)
+        for (int i = currentRoomNodeGraph.roomNodeList.Count -1; i >= 0; i--)
         {
-            if (currentRoomNodeGraph.roomNodelist[i].rect.Contains(currentEvent.mousePosition))
+            if (currentRoomNodeGraph.roomNodeList[i].rect.Contains(currentEvent.mousePosition))
             {
-                return currentRoomNodeGraph.roomNodelist[i];
+                return currentRoomNodeGraph.roomNodeList[i];
             }
         }
 
@@ -293,9 +293,9 @@ public class RoomNodeGraphEditor : EditorWindow
     {
         graphDrag = dragDelta;
 
-        for (int i = 0; i < currentRoomNodeGraph.roomNodelist.Count; i++)
+        for (int i = 0; i < currentRoomNodeGraph.roomNodeList.Count; i++)
         {
-            currentRoomNodeGraph.roomNodelist[i].DragNode(dragDelta);
+            currentRoomNodeGraph.roomNodeList[i].DragNode(dragDelta);
         }
 
         GUI.changed = true;
@@ -328,7 +328,7 @@ public class RoomNodeGraphEditor : EditorWindow
     /// </summary>
     private void CreateRoomNode(object mousePositionObject)
     {
-        if(currentRoomNodeGraph.roomNodelist.Count == 0)
+        if(currentRoomNodeGraph.roomNodeList.Count == 0)
         {
             CreateRoomNode(new Vector2(200f, 200f), roomNodeTypeList.list.Find(x => x.isEntrance));
         }
@@ -346,7 +346,7 @@ public class RoomNodeGraphEditor : EditorWindow
         RoomNodeSO roomNode = ScriptableObject.CreateInstance<RoomNodeSO>();
 
         // add room node to current room node graph room node list
-        currentRoomNodeGraph.roomNodelist.Add(roomNode);
+        currentRoomNodeGraph.roomNodeList.Add(roomNode);
 
         // set room node values
         roomNode.Initialise(new Rect(mousePosition, new Vector2(nodeWidth, nodeHeight)), currentRoomNodeGraph, roomNodeType);
@@ -364,7 +364,7 @@ public class RoomNodeGraphEditor : EditorWindow
     {
         Queue<RoomNodeSO> roomNodeDeletionQueue = new Queue<RoomNodeSO>();
 
-        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodelist)
+        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
             if(roomNode.isSelected && !roomNode.roomNodeType.isEntrance)
             {
@@ -396,7 +396,7 @@ public class RoomNodeGraphEditor : EditorWindow
         {
             RoomNodeSO roomNodeToDelete = roomNodeDeletionQueue.Dequeue();
             currentRoomNodeGraph.roomNodeDictionary.Remove(roomNodeToDelete.id);
-            currentRoomNodeGraph.roomNodelist.Remove(roomNodeToDelete);
+            currentRoomNodeGraph.roomNodeList.Remove(roomNodeToDelete);
 
             // Remove node from Asset database
             DestroyImmediate(roomNodeToDelete,true);
@@ -406,7 +406,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
     private void DeleteSelectedRoomNodeLinks()
     {
-        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodelist)
+        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
             if(roomNode.isSelected && roomNode.childRoomNodeIDlist.Count > 0)
             {
@@ -431,7 +431,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
     private void ClearAllSelectedRoomNodes()
     {
-        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodelist)
+        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
             if(roomNode.isSelected)
             {
@@ -443,7 +443,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
     private void SelectAllRoomNodes()
     {
-        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodelist)
+        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
             roomNode.isSelected = true;
         }
@@ -461,7 +461,7 @@ public class RoomNodeGraphEditor : EditorWindow
     private void DrawRoomConnections()
     {
         // loop through all roomnodes
-        foreach (RoomNodeSO roomNode in currentRoomNodeGraph.roomNodelist)
+        foreach (RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
             if(roomNode.childRoomNodeIDlist.Count > 0)
             {
@@ -514,7 +514,7 @@ public class RoomNodeGraphEditor : EditorWindow
     private void DrawRoomNodes()
     {
         // loop throught all rooms nodes and draw them
-        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodelist)
+        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
             if(roomNode.isSelected)
             {

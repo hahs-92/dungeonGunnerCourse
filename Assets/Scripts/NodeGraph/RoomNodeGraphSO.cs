@@ -11,7 +11,7 @@ using UnityEngine;
 public class RoomNodeGraphSO : ScriptableObject
 {
     [HideInInspector] public RoomNodeTypeListSO roomNodeTypeList;
-    [HideInInspector] public List<RoomNodeSO> roomNodelist = new List<RoomNodeSO>();
+    [HideInInspector] public List<RoomNodeSO> roomNodeList = new List<RoomNodeSO>();
     [HideInInspector] public Dictionary<string, RoomNodeSO> roomNodeDictionary = new Dictionary<string, RoomNodeSO>();
 
     private void Awake()
@@ -24,7 +24,7 @@ public class RoomNodeGraphSO : ScriptableObject
         roomNodeDictionary.Clear();
 
         //populate dictionary
-        foreach(RoomNodeSO node in roomNodelist)
+        foreach(RoomNodeSO node in roomNodeList)
         {
             roomNodeDictionary[node.id] = node;
         }
