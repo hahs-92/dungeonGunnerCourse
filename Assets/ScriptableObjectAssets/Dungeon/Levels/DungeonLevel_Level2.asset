@@ -12,6 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cb52b1b56fda544beb8093b1807ef1, type: 3}
   m_Name: DungeonLevel_Level2
   m_EditorClassIdentifier: 
-  levelName: 
-  roomTemplateList: []
-  roomNodeGraphList: []
+  levelName: The Shadow Crypt
+  roomTemplateList:
+  - {fileID: 11400000, guid: 3cdc996eae718644dad8dad24ae2c39f, type: 2}
+  - {fileID: 11400000, guid: 03fb8e6e180566844b9c3942a093676e, type: 2}
+  - {fileID: 11400000, guid: 5e10298487db4a548a9e425ea037c915, type: 2}
+  - {fileID: 11400000, guid: 9927e94b574775f4c83d6ac8ef1a7ea1, type: 2}
+  - {fileID: 11400000, guid: 17aab39e60e31b44cbb99c260366f725, type: 2}
+  - {fileID: 11400000, guid: 75e9ed4d33bf76c439c799075b936c76, type: 2}
+  - {fileID: 11400000, guid: 58168ebb0df392f41b061a0c6b25da05, type: 2}
+  - {fileID: 11400000, guid: 74c9dcaed5ec2f949878a19a2067a840, type: 2}
+  - {fileID: 11400000, guid: 8560fcec9e5cd454aae62d7775c44da1, type: 2}
+  - {fileID: 11400000, guid: 1d5c4c4b7468b7749bced9ffcf6799be, type: 2}
+  - {fileID: 11400000, guid: 5ec7c3fd29261984abd0f0a91400645d, type: 2}
+  - {fileID: 11400000, guid: 162bb1ef7e418cb45b8a9972883291e2, type: 2}
+  - {fileID: 11400000, guid: 441b01f46e3eeb442ade8694ca990dae, type: 2}
+  - {fileID: 11400000, guid: a513c365c6072fa4c9068779c5d2173e, type: 2}
+  - {fileID: 11400000, guid: a1c147aa88a50d64dbc012a46f5d011c, type: 2}
+  - {fileID: 11400000, guid: ffb5abf059fa3cb4187f05ee5225308f, type: 2}
+  - {fileID: 11400000, guid: 1cbc835c305513640970724d8b4d26ef, type: 2}
+  - {fileID: 11400000, guid: 6de62b1aab2953146a354bd9e5f255d0, type: 2}
+  - {fileID: 11400000, guid: ca3ebf2399132f74589db4539c90168f, type: 2}
+  - {fileID: 11400000, guid: b497cf51860cc124088acdf3dfcc4bdc, type: 2}
+  - {fileID: 11400000, guid: aeaa238dda2b934409291731e7646e39, type: 2}
+  roomNodeGraphList:
+  - {fileID: 11400000, guid: 291b819542d618144982fe6f3d6d8e35, type: 2}
+  - {fileID: 11400000, guid: 61900b0e7c680d54b861332319956c27, type: 2}
+  - {fileID: 11400000, guid: 4720d406fbcc1ce4aa9c80a9fdf6b860, type: 2}
+  - {fileID: 11400000, guid: 771fd54c58bcc344e9b26ef093da8bb6, type: 2}
+  - {fileID: 11400000, guid: f2fe2a1f3b975154686df08eed82c050, type: 2}

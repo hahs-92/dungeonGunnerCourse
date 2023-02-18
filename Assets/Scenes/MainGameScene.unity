@@ -345,10 +345,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.375
-    y: -0.28125
-    width: 0.75
-    height: 0.5625
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -432,6 +432,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &323760945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323760947}
+  - component: {fileID: 323760946}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &323760946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323760945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c3f912a4d8c5a4db1a8de9a24c5e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonLevelList:
+  - {fileID: 11400000, guid: b633ccde35cb97c42beb2b9ab766aebe, type: 2}
+  - {fileID: 11400000, guid: 8744e972009f0854a8a652497c9f4cd8, type: 2}
+  - {fileID: 11400000, guid: 1c35d33fd81e5954cbb60a24e8f360be, type: 2}
+  - {fileID: 11400000, guid: 879125a88c16adb42a24d4b50c855a59, type: 2}
+  - {fileID: 11400000, guid: 294709555079c104fba7d48a8427fa6c, type: 2}
+  - {fileID: 11400000, guid: 8f48550e3c51ac84d88f0f7a4a3ceffd, type: 2}
+  currentDungeonLevelListIndex: 0
+  gameState: 0
+--- !u!4 &323760947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323760945}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415084789
 GameObject:

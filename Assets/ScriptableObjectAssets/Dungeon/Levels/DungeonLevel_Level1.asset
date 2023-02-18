@@ -12,6 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cb52b1b56fda544beb8093b1807ef1, type: 3}
   m_Name: DungeonLevel_Level1
   m_EditorClassIdentifier: 
-  levelName: 
-  roomTemplateList: []
-  roomNodeGraphList: []
+  levelName: The Hall Of Heroes
+  roomTemplateList:
+  - {fileID: 11400000, guid: 3cdc996eae718644dad8dad24ae2c39f, type: 2}
+  - {fileID: 11400000, guid: 17aab39e60e31b44cbb99c260366f725, type: 2}
+  - {fileID: 11400000, guid: 75e9ed4d33bf76c439c799075b936c76, type: 2}
+  - {fileID: 11400000, guid: 58168ebb0df392f41b061a0c6b25da05, type: 2}
+  - {fileID: 11400000, guid: 74c9dcaed5ec2f949878a19a2067a840, type: 2}
+  - {fileID: 11400000, guid: 8560fcec9e5cd454aae62d7775c44da1, type: 2}
+  - {fileID: 11400000, guid: 1d5c4c4b7468b7749bced9ffcf6799be, type: 2}
+  - {fileID: 11400000, guid: a513c365c6072fa4c9068779c5d2173e, type: 2}
+  - {fileID: 11400000, guid: a1c147aa88a50d64dbc012a46f5d011c, type: 2}
+  - {fileID: 11400000, guid: 1cbc835c305513640970724d8b4d26ef, type: 2}
+  - {fileID: 11400000, guid: 6de62b1aab2953146a354bd9e5f255d0, type: 2}
+  - {fileID: 11400000, guid: ca3ebf2399132f74589db4539c90168f, type: 2}
+  - {fileID: 11400000, guid: 5ec7c3fd29261984abd0f0a91400645d, type: 2}
+  - {fileID: 11400000, guid: 441b01f46e3eeb442ade8694ca990dae, type: 2}
+  - {fileID: 11400000, guid: 5e10298487db4a548a9e425ea037c915, type: 2}
+  - {fileID: 11400000, guid: b497cf51860cc124088acdf3dfcc4bdc, type: 2}
+  roomNodeGraphList:
+  - {fileID: 11400000, guid: 3ccd6facf984fd14f82789e5e9870bc3, type: 2}
+  - {fileID: 11400000, guid: 8554b716f11cb0846b6e84184a9b1f41, type: 2}
+  - {fileID: 11400000, guid: a1515346dd18d1b49a87d152c4a4054e, type: 2}
+  - {fileID: 11400000, guid: 8edd011444fb44a4582250706e1f3cdd, type: 2}
+  - {fileID: 11400000, guid: 0a4b5bb5b9a77134e841daf5675156b7, type: 2}
