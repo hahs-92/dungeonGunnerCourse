@@ -8,7 +8,7 @@ public class RoomNodeSO : ScriptableObject
 {
     [HideInInspector] public string id;
     [HideInInspector] public List<string> parentRoomNodeIDList = new List<string>();
-    [HideInInspector] public List<string> childRoomNodeIDlist = new List<string>();
+    [HideInInspector] public List<string> childRoomNodeIDList = new List<string>();
     [HideInInspector] public RoomNodeGraphSO roomNodeGraph;
     public RoomNodeTypeSO roomNodeType;
     [HideInInspector] public RoomNodeTypeListSO roomNodeTypeList;
@@ -65,12 +65,12 @@ public class RoomNodeSO : ScriptableObject
                 !roomNodeTypeList.list[selected].isCorridor && roomNodeTypeList.list[selection].isCorridor || 
                 !roomNodeTypeList.list[selected].isBossRoom && roomNodeTypeList.list[selection].isBossRoom)
             {
-                if (childRoomNodeIDlist.Count > 0)
+                if (childRoomNodeIDList.Count > 0)
                 {
-                    for (int i = childRoomNodeIDlist.Count - 1; i >= 0; i--)
+                    for (int i = childRoomNodeIDList.Count - 1; i >= 0; i--)
                     {
                         //Get child room node
-                        RoomNodeSO childRoomNode = roomNodeGraph.GetRoomNode(childRoomNodeIDlist[i]);
+                        RoomNodeSO childRoomNode = roomNodeGraph.GetRoomNode(childRoomNodeIDList[i]);
 
                         if (childRoomNode != null)
                         {
@@ -208,7 +208,7 @@ public class RoomNodeSO : ScriptableObject
    {
         if(IsChildRoomValid(childID))
         {
-            childRoomNodeIDlist.Add(childID);
+            childRoomNodeIDList.Add(childID);
             return true;
         }
 
@@ -226,9 +226,9 @@ public class RoomNodeSO : ScriptableObject
 
     public bool RemoveChildRoomNodeIDFromRoomNode(string childID)
     {
-        if(childRoomNodeIDlist.Contains(childID))
+        if(childRoomNodeIDList.Contains(childID))
         {
-            childRoomNodeIDlist.Remove(childID);
+            childRoomNodeIDList.Remove(childID);
             return true;
         }
 
@@ -268,7 +268,7 @@ public class RoomNodeSO : ScriptableObject
             return false;
         }
 
-        if(childRoomNodeIDlist.Contains(childID))
+        if(childRoomNodeIDList.Contains(childID))
         {
             return false;
         }
@@ -299,7 +299,7 @@ public class RoomNodeSO : ScriptableObject
 
         // settings is nuestra clase, donde guardamos las variables de configuration
         // no pueden haber mas de 3 corredores por entrada
-        if(roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && childRoomNodeIDlist.Count >= Settings.maxChildCorridors)
+        if(roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && childRoomNodeIDList.Count >= Settings.maxChildCorridors)
         {
             return false;
         }
@@ -309,7 +309,7 @@ public class RoomNodeSO : ScriptableObject
             return false;
         }
 
-        if(!roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && childRoomNodeIDlist.Count > 0)
+        if(!roomNodeGraph.GetRoomNode(childID).roomNodeType.isCorridor && childRoomNodeIDList.Count > 0)
         {
             return false;
         }

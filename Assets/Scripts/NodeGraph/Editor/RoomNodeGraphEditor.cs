@@ -370,7 +370,7 @@ public class RoomNodeGraphEditor : EditorWindow
             {
                 roomNodeDeletionQueue.Enqueue(roomNode);
 
-                foreach(string childRoomNodeID in roomNode.childRoomNodeIDlist)
+                foreach(string childRoomNodeID in roomNode.childRoomNodeIDList)
                 {
                     RoomNodeSO childRoomNode = currentRoomNodeGraph.GetRoomNode(childRoomNodeID);
 
@@ -408,12 +408,12 @@ public class RoomNodeGraphEditor : EditorWindow
     {
         foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
-            if(roomNode.isSelected && roomNode.childRoomNodeIDlist.Count > 0)
+            if(roomNode.isSelected && roomNode.childRoomNodeIDList.Count > 0)
             {
-                for (int i = roomNode.childRoomNodeIDlist.Count - 1; i >= 0; i--) 
+                for (int i = roomNode.childRoomNodeIDList.Count - 1; i >= 0; i--) 
                 {
                     //Get child room node
-                    RoomNodeSO childRoomNode = currentRoomNodeGraph.GetRoomNode(roomNode.childRoomNodeIDlist[i]);
+                    RoomNodeSO childRoomNode = currentRoomNodeGraph.GetRoomNode(roomNode.childRoomNodeIDList[i]);
 
                     if(childRoomNode != null && childRoomNode.isSelected)
                     {
@@ -463,10 +463,10 @@ public class RoomNodeGraphEditor : EditorWindow
         // loop through all roomnodes
         foreach (RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
-            if(roomNode.childRoomNodeIDlist.Count > 0)
+            if(roomNode.childRoomNodeIDList.Count > 0)
             {
                 // loop through child room nodes
-                foreach(string childRoomNodeID in roomNode.childRoomNodeIDlist)
+                foreach(string childRoomNodeID in roomNode.childRoomNodeIDList)
                 {
                     // get child room node from dictionary
                     if(currentRoomNodeGraph.roomNodeDictionary.ContainsKey(childRoomNodeID))
