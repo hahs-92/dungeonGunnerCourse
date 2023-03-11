@@ -2,27 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[DisallowMultipleComponent] // previene que se agregue el mismo componente mas d euna vez al juego
+[DisallowMultipleComponent]
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-
     #region Header DUNGEON LEVELS
+
     [Space(10)]
     [Header("DUNGEON LEVELS")]
+
     #endregion Header DUNGEON LEVELS
 
     #region Tooltip
+
     [Tooltip("Populate with the dungeon level scriptable objects")]
+
     #endregion Tooltip
 
     [SerializeField] private List<DungeonLevelSO> dungeonLevelList;
 
     #region Tooltip
+
     [Tooltip("Populate with the starting dungeon level for testing , first level = 0")]
+
     #endregion Tooltip
 
     [SerializeField] private int currentDungeonLevelListIndex = 0;
+
     [HideInInspector] public GameState gameState;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -36,10 +43,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         HandleGameState();
 
         // For testing
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             gameState = GameState.gameStarted;
         }
+
     }
 
     /// <summary>
@@ -56,19 +64,26 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 PlayDungeonLevel(currentDungeonLevelListIndex);
 
                 gameState = GameState.playingLevel;
+
                 break;
+
         }
+
     }
+
 
     private void PlayDungeonLevel(int dungeonLevelListIndex)
     {
+        
         // Build dungeon for level
-        bool dungeonBuiltSuccessfully = DungeonBuilder.Instance.GenerateDungeon(dungeonLevelList[dungeonLevelListIndex]);
+        bool dungeonBuiltSucessfully = DungeonBuilder.Instance.GenerateDungeon(dungeonLevelList[dungeonLevelListIndex]);
 
-        if(!dungeonBuiltSuccessfully)
+        if (!dungeonBuiltSucessfully)
         {
-            Debug.LogError("Could not built dungeon from specified rooms and node graphs");
+            Debug.LogError("Couldn't build dungeon from specified rooms and node graphs");
         }
+
+
     }
 
 
@@ -84,4 +99,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 #endif
 
     #endregion Validation
+
 }
+
