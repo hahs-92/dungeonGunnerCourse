@@ -18,7 +18,7 @@ public class Room
     public List<Doorway> doorWayList;
     public bool isPositioned = false;
     public InstantiatedRoom instantiatedRoom; 
-    public bool isList = false;
+    public bool isLit = false;
     public bool isClearedOfEnemies;
     public bool isPreviouslyVisited;
 

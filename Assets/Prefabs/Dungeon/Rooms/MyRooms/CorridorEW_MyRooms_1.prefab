@@ -859,6 +859,7 @@ GameObject:
   - component: {fileID: 4433924994376494060}
   - component: {fileID: 5366947768160798495}
   - component: {fileID: 4022270881796043857}
+  - component: {fileID: -1348410647846478207}
   m_Layer: 12
   m_Name: CorridorEW_MyRooms_1
   m_TagString: Untagged
@@ -931,6 +932,18 @@ MonoBehaviour:
   roomColliderBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+--- !u!114 &-1348410647846478207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857226695099604999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5769c82c97a05dd448bd03b737c3b679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3386944806189465692
 GameObject:
   m_ObjectHideFlags: 0

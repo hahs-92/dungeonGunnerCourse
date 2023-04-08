@@ -18,6 +18,7 @@ public static class Settings
     //max number of child corridors leading from a room, maximum should be 3 although this is not  recommended
     // since it can cause the dungeon to fail since the rroms are more likely to not fit together
     public const int maxChildCorridors = 3;
+    public const float fadeInTime = 0.5f; // time to fade in the room
     #endregion
 
     #region ANIMATOR PARAMETERS
