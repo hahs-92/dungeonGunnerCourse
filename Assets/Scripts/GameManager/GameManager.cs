@@ -41,6 +41,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     }
 
+    private void OnEnable()
+    {
+        // Subscribe to room changed event.
+        StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe from room changed event
+        StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
+
+    }
+
     /// <summary>
     /// Create player in scene at position
     /// </summary>
@@ -74,6 +87,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             gameState = GameState.gameStarted;
         }
 
+    }
+
+    /// <summary>
+    /// Handle room changed event
+    /// </summary>
+    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
+    {
+        SetCurrentRoom(roomChangedEventArgs.room);
     }
 
     /// <summary>

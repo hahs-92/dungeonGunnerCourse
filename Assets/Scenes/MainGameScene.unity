@@ -548,9 +548,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolArray:
-  - poolSize: 0
-    prefab: {fileID: 0}
-    componentType: 
+  - poolSize: 30
+    prefab: {fileID: 1986481792509252844, guid: fe64a583319cb844fb82572424e7286b, type: 3}
+    componentType: EnemyAnimation
 --- !u!4 &429344945
 Transform:
   m_ObjectHideFlags: 0
@@ -686,6 +686,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139764827}
   m_CullTransparentMesh: 1
+--- !u!1 &1367210155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1367210157}
+  - component: {fileID: 1367210156}
+  m_Layer: 0
+  m_Name: TestEnemyObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1367210156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367210155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6dab8db9d139f4aa6e23ed3c45ea81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAnimationDetailsArray:
+  - animatorController: {fileID: 9100000, guid: 944ecbb1810696b4a8a6781ac1e002a5, type: 2}
+    spriteColor: {r: 0.8784359, g: 0.8867924, b: 0.33882165, a: 1}
+  - animatorController: {fileID: 9100000, guid: 19b6ff9fbadc74e479b63068d33eb245, type: 2}
+    spriteColor: {r: 0.38750413, g: 0.8396226, b: 0.33664113, a: 1}
+  - animatorController: {fileID: 9100000, guid: 0f372b3c644e5ce4a9d95f7f7f25d99a, type: 2}
+    spriteColor: {r: 0.7264151, g: 0.5245937, b: 0.3529281, a: 1}
+  - animatorController: {fileID: 9100000, guid: cf2b002105910e04a8f79c160b4602a0, type: 2}
+    spriteColor: {r: 0.33331978, g: 0.4716981, b: 0.29147384, a: 0.99215686}
+  - animatorController: {fileID: 9100000, guid: 19b6ff9fbadc74e479b63068d33eb245, type: 2}
+    spriteColor: {r: 0.7647059, g: 0.33333337, b: 0.34137025, a: 1}
+  - animatorController: {fileID: 9100000, guid: 34e8d9a39874e5e4dafae7864069e02b, type: 2}
+    spriteColor: {r: 0.8584906, g: 0.78964937, b: 0.78964937, a: 1}
+  - animatorController: {fileID: 9100000, guid: a0ee566a387dcf744a5564ef5baa059e, type: 2}
+    spriteColor: {r: 0.3127893, g: 0.63670367, b: 0.9339623, a: 1}
+  enemyExamplePrefab: {fileID: 1986481792509252844, guid: fe64a583319cb844fb82572424e7286b, type: 3}
+--- !u!4 &1367210157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367210155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415084789
 GameObject:
   m_ObjectHideFlags: 0
