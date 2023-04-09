@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MovementDetails_Player
   m_EditorClassIdentifier: 
   minMoveSpeed: 8
-  maxMoveSpeed: 8
+  maxMoveSpeed: 6
   rollSpeed: 10
   rollDistance: 8
   rollCooldownTime: 0.2
