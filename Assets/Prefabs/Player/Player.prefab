@@ -242,6 +242,9 @@ GameObject:
   - component: {fileID: 1942684540225038526}
   - component: {fileID: 8238264572237803368}
   - component: {fileID: 8671914458357826680}
+  - component: {fileID: 1490985522569229593}
+  - component: {fileID: 4614620298583559523}
+  - component: {fileID: 8445575794268413550}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -464,7 +467,10 @@ MonoBehaviour:
   movementToPositionEvent: {fileID: 0}
   idleEvent: {fileID: 0}
   aimWeaponEvent: {fileID: 0}
+  fireWeaponEvent: {fileID: 0}
   setActiveWeaponEvent: {fileID: 0}
+  activeWeapon: {fileID: 0}
+  weaponFiredEvent: {fileID: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &8174834357724636857
@@ -541,7 +547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDetails: {fileID: 11400000, guid: a050a0eb8fc06204a980dd38c9a3fdf7, type: 2}
-  weaponShootPosition: {fileID: 4360822543783755759}
 --- !u!114 &7621482417885047157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +623,42 @@ MonoBehaviour:
   weaponPolygonCollider2D: {fileID: 4496197687225435510}
   weaponShootPositionTransform: {fileID: 4360822543783755759}
   weaponEffectPositionTransform: {fileID: 3356144737334569057}
+--- !u!114 &1490985522569229593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628763556846169669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd2613055ed1aa4ab8fb594bd342b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4614620298583559523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628763556846169669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a22cb65666db242b9c8692c1b93e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8445575794268413550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628763556846169669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc6cc472a17a14a81d709c2105d2e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7622876939590390959
 GameObject:
   m_ObjectHideFlags: 0

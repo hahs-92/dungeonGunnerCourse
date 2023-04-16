@@ -71,7 +71,7 @@ public class Ammo : MonoBehaviour, IFireable
         float ammoSpeed, 
         Vector3 weaponAimDirectionVector, 
         bool overrideAmmoMovement = false
-        )
+    )
     {
         #region Ammo
         this.ammoDetails = ammoDetails;
@@ -110,7 +110,6 @@ public class Ammo : MonoBehaviour, IFireable
         gameObject.SetActive(true);
 
         #endregion Ammo
-
 
         #region Trail
 
