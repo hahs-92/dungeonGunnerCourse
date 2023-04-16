@@ -25,7 +25,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private PlayerDetailsSO playerDetails;
     private Player player;
 
-
     [HideInInspector] public GameState gameState;
 
 
@@ -38,7 +37,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
         // Instantiate player
         InstantiatePlayer();
-
     }
 
     private void OnEnable()
@@ -82,10 +80,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         HandleGameState();
 
         // For testing
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            gameState = GameState.gameStarted;
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    gameState = GameState.gameStarted;
+        //}
 
     }
 

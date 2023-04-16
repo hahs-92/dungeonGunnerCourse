@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4518566229451931406}
   - component: {fileID: 2386300432154492469}
   - component: {fileID: 7348757957988697281}
-  m_Layer: 16
+  m_Layer: 14
   m_Name: PlayerAmmo6x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

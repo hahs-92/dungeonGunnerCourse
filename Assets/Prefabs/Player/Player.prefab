@@ -245,6 +245,9 @@ GameObject:
   - component: {fileID: 1490985522569229593}
   - component: {fileID: 4614620298583559523}
   - component: {fileID: 8445575794268413550}
+  - component: {fileID: 3597992137099981273}
+  - component: {fileID: -3136033733004152195}
+  - component: {fileID: 7238166015523349380}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -471,6 +474,8 @@ MonoBehaviour:
   setActiveWeaponEvent: {fileID: 0}
   activeWeapon: {fileID: 0}
   weaponFiredEvent: {fileID: 0}
+  reloadWeaponEvent: {fileID: 0}
+  weaponReloadedEvent: {fileID: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &8174834357724636857
@@ -657,6 +662,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dbc6cc472a17a14a81d709c2105d2e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3597992137099981273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628763556846169669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0385a5e9fdf36c4cbebe517a6749f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3136033733004152195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628763556846169669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b53cd5697f9a9b499cc1627a40499e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7238166015523349380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628763556846169669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b06cae40937f04e96b0b5c6bf7386b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7622876939590390959
