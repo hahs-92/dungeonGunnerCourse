@@ -56,17 +56,27 @@ public class GameResources : MonoBehaviour
     #endregion
     public Shader variableLitShader;
 
+    #region Header UI
+    [Space(10)]
+    [Header("UI")]
+    #endregion
+    #region Tooltip
+    [Tooltip("Populate with ammo icon prefab")]
+    #endregion
+    public GameObject ammoIconPrefab;
+
     #region Validation
-        #if UNITY_EDITOR
-            // Validate the scriptable object details entered
-            private void OnValidate()
+#if UNITY_EDITOR
+    // Validate the scriptable object details entered
+    private void OnValidate()
             {
                 HelperUtilities.ValidateCheckNullValue(this, nameof(roomNodeTypeList), roomNodeTypeList);
                 HelperUtilities.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
                 HelperUtilities.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
                 HelperUtilities.ValidateCheckNullValue(this, nameof(dimmedMaterial), dimmedMaterial);
                 HelperUtilities.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
-            }
+                HelperUtilities.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
+    }
 
         #endif
     #endregion
