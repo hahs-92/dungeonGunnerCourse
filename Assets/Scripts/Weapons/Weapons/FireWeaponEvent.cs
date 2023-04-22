@@ -9,6 +9,7 @@ public class FireWeaponEvent : MonoBehaviour
 
     public void CallFireWeaponEvent(
         bool fire, 
+        bool firePreviousFrame,
         AimDirection aimDirection, 
         float aimAngle, 
         float weaponAimAngle, 
@@ -16,7 +17,8 @@ public class FireWeaponEvent : MonoBehaviour
     )
     {
         OnFireWeapon?.Invoke(this, new FireWeaponEventArgs() {
-            fire = fire, 
+            fire = fire,
+            firePreviousFrame = firePreviousFrame,
             aimDirection = aimDirection, 
             aimAngle = aimAngle, 
             weaponAimAngle = weaponAimAngle, 
@@ -28,6 +30,7 @@ public class FireWeaponEvent : MonoBehaviour
 public class FireWeaponEventArgs : EventArgs
 {
     public bool fire;
+    public bool firePreviousFrame;
     public AimDirection aimDirection;
     public float aimAngle;
     public float weaponAimAngle;

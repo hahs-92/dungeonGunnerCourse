@@ -8,6 +8,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class FireWeapon : MonoBehaviour
 {
+    private float firePreChargeTimer = 0f;
     private float fireRateCoolDownTimer = 0f;
     private ActiveWeapon activeWeapon;
     private FireWeaponEvent fireWeaponEvent;
@@ -55,6 +56,9 @@ public class FireWeapon : MonoBehaviour
     /// </summary>
     private void WeaponFire(FireWeaponEventArgs fireWeaponEventArgs)
     {
+        // Handle weapon precharge timer.
+        WeaponPreCharge(fireWeaponEventArgs);
+
         // Weapon fire.
         if (fireWeaponEventArgs.fire)
         {
@@ -65,6 +69,24 @@ public class FireWeapon : MonoBehaviour
 
                 ResetCoolDownTimer();
             }
+        }
+    }
+
+    /// <summary>
+    /// Handle weapon precharge.
+    /// </summary>
+    private void WeaponPreCharge(FireWeaponEventArgs fireWeaponEventArgs)
+    {
+        // Weapon precharge.
+        if (fireWeaponEventArgs.firePreviousFrame)
+        {
+            // Decrease precharge timer if fire button held previous frame.
+            firePreChargeTimer -= Time.deltaTime;
+        }
+        else
+        {
+            // else reset the precharge timer.
+            ResetPrechargeTimer();
         }
     }
 
@@ -81,8 +103,8 @@ public class FireWeapon : MonoBehaviour
         if (activeWeapon.GetCurrentWeapon().isWeaponReloading)
             return false;
 
-        // If the weapon is cooling down then return false.
-        if (fireRateCoolDownTimer > 0f)
+        // If the weapon isn't precharged or is cooling down then return false.
+        if (firePreChargeTimer > 0f || fireRateCoolDownTimer > 0f)
             return false;
 
         // if no ammo in the clip and the weapon doesn't have infinite clip capacity then return false.
@@ -139,5 +161,11 @@ public class FireWeapon : MonoBehaviour
     {
         // Reset cooldown timer
         fireRateCoolDownTimer = activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate;
+    }
+
+    private void ResetPrechargeTimer()
+    {
+        // Reset precharge timer
+        firePreChargeTimer = activeWeapon.GetCurrentWeapon().weaponDetails.weaponPrechargeTime;
     }
 }
