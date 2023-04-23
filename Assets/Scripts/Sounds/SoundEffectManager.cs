@@ -22,7 +22,6 @@ public class SoundEffectManager : SingletonMonoBehaviour<SoundEffectManager>
         sound.SetSound(soundEffect);
         sound.gameObject.SetActive(true);
         StartCoroutine(DisableSound(sound, soundEffect.soundEffectClip.length));
-
     }
 
 
