@@ -21,6 +21,7 @@ public class SoundEffectManager : SingletonMonoBehaviour<SoundEffectManager>
         SoundEffect sound = (SoundEffect)PoolManager.Instance.ReuseComponent(soundEffect.soundPrefab, Vector3.zero, Quaternion.identity);
         sound.SetSound(soundEffect);
         sound.gameObject.SetActive(true);
+
         StartCoroutine(DisableSound(sound, soundEffect.soundEffectClip.length));
     }
 
