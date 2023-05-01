@@ -160,7 +160,6 @@ public static class AStar
                     // Settings and applies to other grid squares.
                     int movementPenaltyForGridSpace = instantiatedRoom.aStarMovementPenalty[validNeighbourNode.gridPosition.x, validNeighbourNode.gridPosition.y];
 
-
                     newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, validNeighbourNode) + movementPenaltyForGridSpace;
 
                     bool isValidNeighbourNodeInOpenList = openNodeList.Contains(validNeighbourNode);

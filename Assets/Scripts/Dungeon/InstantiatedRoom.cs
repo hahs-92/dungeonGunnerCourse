@@ -51,7 +51,7 @@ public class InstantiatedRoom : MonoBehaviour
     {
         PopulateTilemapMemberVariables(roomGameobject);
         BlockOffUnusedDoorWays();
-        AddObstacles();
+        AddObstaclesAndPreferredPaths();
         AddDoorsToRooms();
         DisableCollisionTilemapRenderer();
 
@@ -220,7 +220,7 @@ public class InstantiatedRoom : MonoBehaviour
     /// <summary>
     /// Update obstacles used by AStar pathfinmding.
     /// </summary>
-    private void AddObstacles()
+    private void AddObstaclesAndPreferredPaths()
     {
         // this array will be populated with wall obstacles 
         aStarMovementPenalty = new int[
@@ -246,6 +246,13 @@ public class InstantiatedRoom : MonoBehaviour
                         aStarMovementPenalty[x, y] = 0;
                         break;
                     }
+                }
+
+                // Add preferred path for enemies (1 is the preferred path value, default value for
+                // a grid location is specified in the Settings).
+                if (tile == GameResources.Instance.preferredEnemyPathTile)
+                {
+                    aStarMovementPenalty[x, y] = Settings.preferredPathAStarMovementPenalty;
                 }
             }
         }
