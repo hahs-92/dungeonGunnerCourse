@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.Audio;
 
 public class GameResources : MonoBehaviour
@@ -71,6 +72,23 @@ public class GameResources : MonoBehaviour
     #endregion
     public Shader variableLitShader;
 
+
+    #region Header SPECIAL TILEMAP TILES
+    [Space(10)]
+    [Header("SPECIAL TILEMAP TILES")]
+    #endregion Header SPECIAL TILEMAP TILES
+    #region Tooltip
+
+    [Tooltip("Collision tiles that the enemies can navigate to")]
+    #endregion Tooltip
+    public TileBase[] enemyUnwalkableCollisionTilesArray;
+
+    #region Tooltip
+    [Tooltip("Preferred path tile for enemy navigation")]
+    #endregion Tooltip
+    public TileBase preferredEnemyPathTile;
+
+
     #region Header UI
     [Space(10)]
     [Header("UI")]
@@ -79,6 +97,7 @@ public class GameResources : MonoBehaviour
     [Tooltip("Populate with ammo icon prefab")]
     #endregion
     public GameObject ammoIconPrefab;
+
 
     #region Validation
 #if UNITY_EDITOR
@@ -92,6 +111,8 @@ public class GameResources : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(dimmedMaterial), dimmedMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
+        HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
         HelperUtilities.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
     }
 
