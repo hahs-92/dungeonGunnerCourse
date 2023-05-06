@@ -171,5 +171,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 8784337606989860369, guid: 7b09fa81c81d79547aaf426aac115e8a, type: 3}
+    - target: {fileID: 6871172644937690540, guid: fb29e90a7bf3ca947b2629aaacd4e588, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 6763e9b67ff2ad14393e6cfd5c33fa24, type: 2}
+    - target: {fileID: 9201033649114121273, guid: fb29e90a7bf3ca947b2629aaacd4e588, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cb340f61a8066d46a57f4a86a8ee425, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb29e90a7bf3ca947b2629aaacd4e588, type: 3}

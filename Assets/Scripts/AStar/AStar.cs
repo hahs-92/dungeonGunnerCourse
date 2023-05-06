@@ -159,7 +159,7 @@ public static class AStar
                     // Unwalkable paths have a value of 0. Default movement penalty is set in
                     // Settings and applies to other grid squares.
                     int movementPenaltyForGridSpace = instantiatedRoom.aStarMovementPenalty[validNeighbourNode.gridPosition.x, validNeighbourNode.gridPosition.y];
-
+                    
                     newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, validNeighbourNode) + movementPenaltyForGridSpace;
 
                     bool isValidNeighbourNodeInOpenList = openNodeList.Contains(validNeighbourNode);
@@ -222,6 +222,7 @@ public static class AStar
 
         // check for obstacle at that position
         int movementPenaltyForGridSpace = instantiatedRoom.aStarMovementPenalty[neighbourNodeXPosition, neighbourNodeYPosition];
+        
 
         // if neighbour is in the closed list then skip
         if (movementPenaltyForGridSpace == 0 || closedNodeHashSet.Contains(neighbourNode))
