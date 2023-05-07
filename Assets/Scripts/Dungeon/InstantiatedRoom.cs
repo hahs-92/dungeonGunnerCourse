@@ -317,6 +317,7 @@ public class InstantiatedRoom : MonoBehaviour
 
     }
 
+
     /// <summary>
     /// Disable collision tilemap renderer
     /// </summary>
@@ -325,6 +326,33 @@ public class InstantiatedRoom : MonoBehaviour
         // Disable collision tilemap renderer
         collisionTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
 
+    }
+
+
+    /// <summary>
+    /// Disable the room trigger collider that is used to trigger when the player enters a room
+    /// </summary>
+    public void DisableRoomCollider()
+    {
+        boxCollider2D.enabled = false;
+    }
+
+
+    /// <summary>
+    /// Lock the room doors
+    /// </summary>
+    public void LockDoors()
+    {
+        Door[] doorArray = GetComponentsInChildren<Door>();
+
+        // Trigger lock doors
+        foreach (Door door in doorArray)
+        {
+            door.LockDoor();
+        }
+
+        // Disable room trigger collider
+        DisableRoomCollider();
     }
 
 }

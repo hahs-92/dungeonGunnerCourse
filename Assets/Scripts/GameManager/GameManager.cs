@@ -26,6 +26,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private Player player;
 
     [HideInInspector] public GameState gameState;
+    [HideInInspector] public GameState previousGameState;
 
 
     protected override void Awake()
@@ -52,25 +53,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     }
 
-    /// <summary>
-    /// Create player in scene at position
-    /// </summary>
-    private void InstantiatePlayer()
-    {
-        // Instantiate player
-        GameObject playerGameObject = Instantiate(playerDetails.playerPrefab);
-
-        // Initialize Player
-        player = playerGameObject.GetComponent<Player>();
-
-        player.Initialize(playerDetails);
-
-    }
-
 
     // Start is called before the first frame update
     private void Start()
     {
+        previousGameState = GameState.gameStarted;
         gameState = GameState.gameStarted;
     }
 
@@ -84,6 +71,21 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         //{
         //    gameState = GameState.gameStarted;
         //}
+
+    }
+
+    /// <summary>
+    /// Create player in scene at position
+    /// </summary>
+    private void InstantiatePlayer()
+    {
+        // Instantiate player
+        GameObject playerGameObject = Instantiate(playerDetails.playerPrefab);
+
+        // Initialize Player
+        player = playerGameObject.GetComponent<Player>();
+
+        player.Initialize(playerDetails);
 
     }
 
