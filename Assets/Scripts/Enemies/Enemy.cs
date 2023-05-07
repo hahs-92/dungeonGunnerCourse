@@ -23,9 +23,11 @@ public class Enemy : MonoBehaviour
 {
     // cuando se instancie los enemigos se populate este campo
     [HideInInspector] public EnemyDetailsSO enemyDetails;
+    [HideInInspector] public AimWeaponEvent aimWeaponEvent;
     private EnemyMovementAI enemyMovementAI;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
     [HideInInspector] public IdleEvent idleEvent;
+    [HideInInspector] public FireWeaponEvent fireWeaponEvent;
 
     private MaterializeEffect materializeEffect;
     private CircleCollider2D circleCollider2D;
