@@ -51,7 +51,6 @@ public class RandomSpawnableObject<T>
                             lowBoundaryValue = lowerBoundary,
                             highBoundaryValue = upperBoundary 
                         });
-
                 }
             }
         }
@@ -69,7 +68,6 @@ public class RandomSpawnableObject<T>
                 break;
             }
         }
-
 
         return spawnableObject;
     }
