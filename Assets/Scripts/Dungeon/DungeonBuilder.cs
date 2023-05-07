@@ -194,7 +194,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
         }
 
         return noRoomOverlaps;
-
     }
 
 
@@ -249,7 +248,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
         }
 
         return true;  // no room overlaps
-
     }
 
     /// <summary>

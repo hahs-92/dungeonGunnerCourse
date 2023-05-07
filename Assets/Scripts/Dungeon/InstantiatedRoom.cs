@@ -182,7 +182,10 @@ public class InstantiatedRoom : MonoBehaviour
                 Matrix4x4 transformMatrix = tilemap.GetTransformMatrix(new Vector3Int(startPosition.x + xPos, startPosition.y - yPos, 0));
 
                 // Copy tile
-                tilemap.SetTile(new Vector3Int(startPosition.x + 1 + xPos, startPosition.y - yPos, 0), tilemap.GetTile(new Vector3Int(startPosition.x + xPos, startPosition.y - yPos, 0)));
+                tilemap.SetTile(
+                    new Vector3Int(startPosition.x + 1 + xPos, 
+                    startPosition.y - yPos, 0), 
+                    tilemap.GetTile(new Vector3Int(startPosition.x + xPos, startPosition.y - yPos, 0)));
 
                 // Set rotation of tile copied
                 tilemap.SetTransformMatrix(new Vector3Int(startPosition.x + 1 + xPos, startPosition.y - yPos, 0), transformMatrix);

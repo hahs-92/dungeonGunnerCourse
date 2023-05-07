@@ -145,7 +145,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         StaticEventHandler.CallRoomChangedEvent(currentRoom);
 
         // Set player roughly mid-room
-        player.gameObject.transform.position = new Vector3((currentRoom.lowerBounds.x + currentRoom.upperBounds.x) / 2f, (currentRoom.lowerBounds.y + currentRoom.upperBounds.y) / 2f, 0f);
+        player.gameObject.transform.position = new Vector3(
+            (currentRoom.lowerBounds.x + currentRoom.upperBounds.x) / 2f, 
+            (currentRoom.lowerBounds.y + currentRoom.upperBounds.y) / 2f, 0f);
 
         // Get nearest spawn point in room nearest to player
         player.gameObject.transform.position = HelperUtilities.GetSpawnPositionNearestToPlayer(player.gameObject.transform.position);
