@@ -641,6 +641,12 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
 
             // Save gameobject reference.
             room.instantiatedRoom = instantiatedRoom;
+
+            // Demo code to set rooms as cleared - except for boss
+            if (!room.roomNodeType.isBossRoom)
+            {
+                room.isClearedOfEnemies = true;
+            }
         }
     }
 
