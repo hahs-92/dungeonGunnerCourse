@@ -9,7 +9,10 @@ public class Health : MonoBehaviour
     private int startingHealth;
     private int currentHealth;
     private HealthEvent healthEvent;
+    private Player player;
+
     [HideInInspector] public bool isDamageable = true;
+    [HideInInspector] public Enemy enemy;
 
     private void Awake()
     {
@@ -21,6 +24,10 @@ public class Health : MonoBehaviour
     {
         // Trigger a health event for UI update
         CallHealthEvent(0);
+
+        // Attempt to load enemy / player components
+        player = GetComponent<Player>();
+        enemy = GetComponent<Enemy>();
     }
 
     /// <summary>
@@ -28,10 +35,21 @@ public class Health : MonoBehaviour
     /// </summary>
     public void TakeDamage(int damageAmount)
     {
-        if (isDamageable)
+        bool isRolling = false;
+
+        if (player != null)
+            isRolling = player.playerControl.isPlayerRolling;
+
+        if (isDamageable && !isRolling)
         {
             currentHealth -= damageAmount;
             CallHealthEvent(damageAmount);
+        }
+
+
+        if (isDamageable && isRolling)
+        {
+            Debug.Log("Dodged Bullet By Rolling");
         }
     }
 

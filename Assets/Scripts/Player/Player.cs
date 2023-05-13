@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public HealthEvent healthEvent;
     [HideInInspector] public Health health;
     [HideInInspector] public DestroyedEvent destroyedEvent;
+    [HideInInspector] public PlayerControl playerControl;
     [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
     [HideInInspector] public IdleEvent idleEvent;
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
         healthEvent = GetComponent<HealthEvent>();
         health = GetComponent<Health>();
         destroyedEvent = GetComponent<DestroyedEvent>();
+        playerControl = GetComponent<PlayerControl>();
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
         idleEvent = GetComponent<IdleEvent>();
