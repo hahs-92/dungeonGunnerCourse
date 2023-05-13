@@ -19,6 +19,7 @@ public class Ammo : MonoBehaviour, IFireable
     private float ammoChargeTimer;
     private bool isAmmoMaterialSet = false;
     private bool overrideAmmoMovement;
+    private bool isColliding = false;
 
     private void Awake()
     {
@@ -56,6 +57,9 @@ public class Ammo : MonoBehaviour, IFireable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // If already colliding with something return
+        if (isColliding) return;
+
         // Deal Damage To Collision Object
         DealDamage(collision);
         // Show ammo hit effect
@@ -69,6 +73,8 @@ public class Ammo : MonoBehaviour, IFireable
 
         if (health != null)
         {
+            // Set isColliding to prevent ammo dealing damage multiple times
+            isColliding = true;
             health.TakeDamage(ammoDetails.ammoDamage);
         }
 
@@ -90,6 +96,9 @@ public class Ammo : MonoBehaviour, IFireable
     {
         #region Ammo
         this.ammoDetails = ammoDetails;
+
+        // Initialise isColliding
+        isColliding = false;
 
         // Set fire direction
         SetFireDirection(ammoDetails, aimAngle, weaponAimAngle, weaponAimDirectionVector);
