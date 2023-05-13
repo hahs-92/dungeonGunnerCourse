@@ -28,9 +28,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [HideInInspector] public GameState gameState;
     [HideInInspector] public GameState previousGameState;
     private long gameScore;
-
-
-
+    private int scoreMultiplier;
 
 
     protected override void Awake()
@@ -51,6 +49,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
         // Subscribe to the points scored event
         StaticEventHandler.OnPointsScored += StaticEventHandler_OnPointsScored;
+
+        // Subscribe to score multiplier event
+        StaticEventHandler.OnMultiplier += StaticEventHandler_OnMultiplier;
     }
 
     private void OnDisable()
@@ -60,6 +61,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
         // Unsubscribe from the points scored event
         StaticEventHandler.OnPointsScored -= StaticEventHandler_OnPointsScored;
+
+        // Unsubscribe from score multiplier event
+        StaticEventHandler.OnMultiplier -= StaticEventHandler_OnMultiplier;
     }
 
 
@@ -115,10 +119,31 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void StaticEventHandler_OnPointsScored(PointsScoredArgs pointsScoredArgs)
     {
         // Increase score
-        gameScore += pointsScoredArgs.points;
+        gameScore += pointsScoredArgs.points * scoreMultiplier;
 
         // Call score changed event
-        StaticEventHandler.CallScoreChangedEvent(gameScore);
+        StaticEventHandler.CallScoreChangedEvent(gameScore, scoreMultiplier);
+    }
+
+    /// <summary>
+    /// Handle score multiplier event
+    /// </summary>
+    private void StaticEventHandler_OnMultiplier(MultiplierArgs multiplierArgs)
+    {
+        if (multiplierArgs.multiplier)
+        {
+            scoreMultiplier++;
+        }
+        else
+        {
+            scoreMultiplier--;
+        }
+
+        // clamp between 1 and 30
+        scoreMultiplier = Mathf.Clamp(scoreMultiplier, 1, 30);
+
+        // Call score changed event
+        StaticEventHandler.CallScoreChangedEvent(gameScore, scoreMultiplier);
     }
 
     /// <summary>
