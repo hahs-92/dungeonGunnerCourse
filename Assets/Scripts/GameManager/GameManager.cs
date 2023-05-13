@@ -27,6 +27,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     [HideInInspector] public GameState gameState;
     [HideInInspector] public GameState previousGameState;
+    private long gameScore;
+
+
+
 
 
     protected override void Awake()
@@ -44,6 +48,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         // Subscribe to room changed event.
         StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
+
+        // Subscribe to the points scored event
+        StaticEventHandler.OnPointsScored += StaticEventHandler_OnPointsScored;
     }
 
     private void OnDisable()
@@ -51,6 +58,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         // Unsubscribe from room changed event
         StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
 
+        // Unsubscribe from the points scored event
+        StaticEventHandler.OnPointsScored -= StaticEventHandler_OnPointsScored;
     }
 
 
@@ -59,6 +68,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         previousGameState = GameState.gameStarted;
         gameState = GameState.gameStarted;
+
+        // Set score to zero
+        gameScore = 0;
     }
 
     // Update is called once per frame
@@ -95,6 +107,18 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
     {
         SetCurrentRoom(roomChangedEventArgs.room);
+    }
+
+    /// <summary>
+    /// Handle points scored event
+    /// </summary>
+    private void StaticEventHandler_OnPointsScored(PointsScoredArgs pointsScoredArgs)
+    {
+        // Increase score
+        gameScore += pointsScoredArgs.points;
+
+        // Call score changed event
+        StaticEventHandler.CallScoreChangedEvent(gameScore);
     }
 
     /// <summary>
