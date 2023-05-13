@@ -91,6 +91,26 @@ public class EnemyDetailsSO : ScriptableObject
     public bool firingLineOfSightRequired;
 
 
+    #region Header ENEMY HEALTH
+    [Space(10)]
+    [Header("ENEMY HEALTH")]
+    #endregion
+    #region Tooltip
+    [Tooltip("The health of the enemy for each level")]
+    #endregion
+    public EnemyHealthDetails[] enemyHealthDetailsArray;
+
+    #region Tooltip
+    [Tooltip("Select if has immunity period immediately after being hit.  If so specify the immunity time in seconds in the other field")]
+    #endregion
+    public bool isImmuneAfterHit = false;
+
+    #region Tooltip
+    [Tooltip("Immunity time in seconds after being hit")]
+    #endregion
+    public float hitImmunityTime;
+
+
 
     #region Validation
 #if UNITY_EDITOR
