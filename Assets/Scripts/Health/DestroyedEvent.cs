@@ -6,10 +6,15 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class DestroyedEvent : MonoBehaviour
 {
-    public event Action<DestroyedEvent> OnDestroyed;
+    public event Action<DestroyedEvent, DestroyedEventArgs> OnDestroyed;
 
-    public void CallDestroyedEvent()
+    public void CallDestroyedEvent(bool playerDied)
     {
-        OnDestroyed?.Invoke(this);
+        OnDestroyed?.Invoke(this, new DestroyedEventArgs() { playerDied = playerDied });
     }
+}
+
+public class DestroyedEventArgs : EventArgs
+{
+    public bool playerDied;
 }
