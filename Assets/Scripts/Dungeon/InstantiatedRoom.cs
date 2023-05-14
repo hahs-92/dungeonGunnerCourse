@@ -19,6 +19,15 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public int[,] aStarMovementPenalty;  
     [HideInInspector] public Bounds roomColliderBounds;
 
+    #region Header OBJECT REFERENCES
+    [Space(10)]
+    [Header("OBJECT REFERENCES")]
+    #endregion Header OBJECT REFERENCES
+    #region Tooltip
+    [Tooltip("Populate with the environment child placeholder gameobject ")]
+    #endregion Tooltip
+    [SerializeField] private GameObject environmentGameObject;
+
     private BoxCollider2D boxCollider2D;
 
     private void Awake()
@@ -348,6 +357,18 @@ public class InstantiatedRoom : MonoBehaviour
         boxCollider2D.enabled = true;
     }
 
+    public void ActivateEnvironmentGameObjects()
+    {
+        if (environmentGameObject != null)
+            environmentGameObject.SetActive(true);
+    }
+
+    public void DeactivateEnvironmentGameObjects()
+    {
+        if (environmentGameObject != null)
+            environmentGameObject.SetActive(false);
+    }
+
 
     /// <summary>
     /// Lock the room doors
@@ -393,5 +414,18 @@ public class InstantiatedRoom : MonoBehaviour
         // Enable room trigger collider
         EnableRoomCollider();
     }
+
+    #region Validation
+
+#if UNITY_EDITOR
+
+    private void OnValidate()
+    {
+        HelperUtilities.ValidateCheckNullValue(this, nameof(environmentGameObject), environmentGameObject);
+    }
+
+#endif
+
+    #endregion Validation
 
 }
