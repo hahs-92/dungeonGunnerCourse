@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CurrentPlayer
   m_EditorClassIdentifier: 
   playerDetails: {fileID: 11400000, guid: d3bfa07ba6f21ab49adb6cc1d19e0fb4, type: 2}
-  playerName: 
+  playerName: ALEX
