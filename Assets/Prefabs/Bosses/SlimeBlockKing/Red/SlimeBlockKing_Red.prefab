@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6eeeb0c028585e344a9339b29de59673, type: 2}
+    - target: {fileID: 3225071247541221324, guid: fb29e90a7bf3ca947b2629aaacd4e588, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3439395158441598031, guid: fb29e90a7bf3ca947b2629aaacd4e588, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 3
