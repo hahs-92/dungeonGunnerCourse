@@ -48,6 +48,7 @@ MonoBehaviour:
   currentPlayer: {fileID: 11400000, guid: 2827f2c753cf95241a1ef2dfc9669e92, type: 2}
   soundsMasterMixerGroup: {fileID: -4734643798044506327, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   doorOpenCloseSoundEffect: {fileID: 11400000, guid: 31a43f368cce9bb4c92c867372e6ff13, type: 2}
+  tableFlip: {fileID: 11400000, guid: f13fb4892cf1697488be57166557a2a7, type: 2}
   dimmedMaterial: {fileID: 2100000, guid: fd5ae752e16da36428c7ae98c49dc19e, type: 2}
   litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   variableLitShader: {fileID: -6465566751694194690, guid: 0e50c1e690d508c41b5ef5ceb55bbd23, type: 3}

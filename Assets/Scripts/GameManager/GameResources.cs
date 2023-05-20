@@ -52,6 +52,11 @@ public class GameResources : MonoBehaviour
     #endregion Tooltip
     public SoundEffectSO doorOpenCloseSoundEffect;
 
+    #region Tooltip
+    [Tooltip("Populate with the table flip sound effect")]
+    #endregion
+    public SoundEffectSO tableFlip;
+
 
     #region Header MATERIALS
     [Space(10)]
@@ -112,11 +117,13 @@ public class GameResources : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
         HelperUtilities.ValidateCheckNullValue(this, nameof(soundsMasterMixerGroup), soundsMasterMixerGroup);
         HelperUtilities.ValidateCheckNullValue(this, nameof(doorOpenCloseSoundEffect), doorOpenCloseSoundEffect);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(tableFlip), tableFlip);
         HelperUtilities.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(dimmedMaterial), dimmedMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
         HelperUtilities.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(heartPrefab), heartPrefab);
         HelperUtilities.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
     }
 

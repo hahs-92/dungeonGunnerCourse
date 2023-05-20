@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5421288816806232770, guid: d7721db27a1a5cc43aec130f715315e0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 40784eca417d06f46bbe3a19dde4e04e, type: 2}
     - target: {fileID: 5999279412426274567, guid: d7721db27a1a5cc43aec130f715315e0, type: 3}
       propertyPath: moveSoundEffect
       value: 
@@ -115,5 +119,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodenTableHorizontal
       objectReference: {fileID: 0}
+    - target: {fileID: 7447939442742969598, guid: d7721db27a1a5cc43aec130f715315e0, type: 3}
+      propertyPath: m_Mass
+      value: 999999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7721db27a1a5cc43aec130f715315e0, type: 3}
+--- !u!1 &3862786637678113766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7011007720103980365, guid: d7721db27a1a5cc43aec130f715315e0, type: 3}
+  m_PrefabInstance: {fileID: 6113431551330770603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3938284908199189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862786637678113766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8979ae00620d24c84a81732777f886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemMass: 8
