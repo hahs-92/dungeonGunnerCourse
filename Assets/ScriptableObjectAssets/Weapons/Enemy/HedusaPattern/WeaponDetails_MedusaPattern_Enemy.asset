@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0c1f93f73f649a38cd335ee1192d, type: 3}
+  m_Name: WeaponDetails_MedusaPattern_Enemy
+  m_EditorClassIdentifier: 
+  weaponName: Medusa Pattern
+  weaponSprite: {fileID: 0}
+  weaponShootPosition: {x: 0.688, y: 0.312, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 4c2295b67ecb2fa4e82c7185c788ae66, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 9da005109e770b0438e33193ef74410f, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: dfee44ea7a5541d44800e03d27050120, type: 2}
+  weaponReloadingSoundEffect: {fileID: 0}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 1
+  weaponClipAmmoCapacity: 0
+  weaponAmmoCapacity: 0
+  weaponFireRate: 3
+  weaponPrechargeTime: 0
+  weaponReloadTime: 0
