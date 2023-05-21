@@ -88,6 +88,30 @@ public class MusicManager : SingletonMonoBehaviour<MusicManager>
     }
 
     /// <summary>
+    /// Increase music volume
+    /// </summary>
+    public void IncreaseMusicVolume()
+    {
+        int maxMusicVolume = 20;
+
+        if (musicVolume >= maxMusicVolume) return;
+
+        musicVolume += 1;
+        SetMusicVolume(musicVolume);
+    }
+
+    /// <summary>
+    /// Decrease music volume
+    /// </summary>
+    public void DecreaseMusicVolume()
+    {
+        if (musicVolume == 0) return;
+
+        musicVolume -= 1;
+        SetMusicVolume(musicVolume);
+    }
+
+    /// <summary>
     /// Set music volume
     /// </summary>
     public void SetMusicVolume(int musicVolume)

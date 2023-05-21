@@ -35,6 +35,30 @@ public class SoundEffectManager : SingletonMonoBehaviour<SoundEffectManager>
         sound.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Increase sounds volume
+    /// </summary>
+    public void IncreaseSoundsVolume()
+    {
+        int maxSoundsVolume = 20;
+        if (soundsVolume >= maxSoundsVolume) return;
+
+        soundsVolume += 1;
+        SetSoundsVolume(soundsVolume); ;
+    }
+
+    /// <summary>
+    /// Decrease sounds volume
+    /// </summary>
+    public void DecreaseSoundsVolume()
+    {
+        if (soundsVolume == 0) return;
+
+        soundsVolume -= 1;
+        SetSoundsVolume(soundsVolume);
+    }
+
+
 
     /// <summary>
     /// Set sounds volume
