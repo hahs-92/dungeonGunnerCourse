@@ -49,7 +49,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private long gameScore;
     private int scoreMultiplier;
     private InstantiatedRoom bossRoom;
-
+    private bool isFading = false;
 
     protected override void Awake()
     {
@@ -208,7 +208,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         switch (gameState)
         {
             case GameState.gameStarted:
-
                 // Play first level
                 PlayDungeonLevel(currentDungeonLevelListIndex);
 
@@ -217,13 +216,36 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 RoomEnemiesDefeated();
                 break;
 
+            // While playing the level handle the tab key for the dungeon overview map.
+            case GameState.playingLevel:
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    DisplayDungeonOverviewMap();
+                }
+                break;
+
+            // if in the dungeon overview map handle the release of the tab key to clear the map
+            case GameState.dungeonOverviewMap:
+                // Key released
+                if (Input.GetKeyUp(KeyCode.Tab))
+                {
+                    // Clear dungeonOverviewMap
+                    DungeonMap.Instance.ClearDungeonOverViewMap();
+                }
+                break;
+
+            // While playing the level and before the boss is engaged, handle the tab key for the dungeon overview map.
+            case GameState.bossStage:
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    DisplayDungeonOverviewMap();
+                }
+                break;
 
             // handle the level being completed
             case GameState.levelCompleted:
-
                 // Display level completed text
                 StartCoroutine(LevelCompleted());
-
                 break;
 
             // handle the game being won (only trigger this once - test the previous game state to do this)
@@ -312,7 +334,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             gameState = GameState.bossStage;
             StartCoroutine(BossStage());
         }
+    }
 
+    /// <summary>
+    /// Dungeon Map Screen Display
+    /// </summary>
+    private void DisplayDungeonOverviewMap()
+    {
+        // return if fading
+        if (isFading)
+            return;
+
+        // Display dungeonOverviewMap
+        DungeonMap.Instance.DisplayDungeonOverViewMap();
     }
 
 
@@ -469,6 +503,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     /// </summary>
     public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
     {
+        isFading = true;
         Image image = canvasGroup.GetComponent<Image>();
         image.color = backgroundColor;
 
@@ -480,6 +515,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time / fadeSeconds);
             yield return null;
         }
+        isFading = false;
     }
 
 

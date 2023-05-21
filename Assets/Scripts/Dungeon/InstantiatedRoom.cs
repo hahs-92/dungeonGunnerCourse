@@ -112,9 +112,7 @@ public class InstantiatedRoom : MonoBehaviour
             {
                 minimapTilemap = tilemap;
             }
-
         }
-
     }
 
     /// <summary>
@@ -232,9 +230,7 @@ public class InstantiatedRoom : MonoBehaviour
 
                 // Set rotation of tile copied
                 tilemap.SetTransformMatrix(new Vector3Int(startPosition.x + xPos, startPosition.y - 1 - yPos, 0), transformMatrix);
-
             }
-
         }
     }
 
@@ -330,12 +326,13 @@ public class InstantiatedRoom : MonoBehaviour
 
                     // lock the door to prevent access to the room
                     doorComponent.LockDoor();
+
+                    // Instantiate skull icon for minimap by door
+                    GameObject skullIcon = Instantiate(GameResources.Instance.minimapSkullPrefab, gameObject.transform);
+                    skullIcon.transform.localPosition = door.transform.localPosition;
                 }
-
             }
-
         }
-
     }
 
 
@@ -346,7 +343,6 @@ public class InstantiatedRoom : MonoBehaviour
     {
         // Disable collision tilemap renderer
         collisionTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
-
     }
 
 
