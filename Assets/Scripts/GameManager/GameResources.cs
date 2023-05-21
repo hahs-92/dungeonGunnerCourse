@@ -38,6 +38,32 @@ public class GameResources : MonoBehaviour
     #endregion Tooltip
     public CurrentPlayerSO currentPlayer;
 
+
+    #region Header MUSIC
+    [Space(10)]
+    [Header("MUSIC")]
+    #endregion Header MUSIC
+    #region Tooltip
+    [Tooltip("Populate with the music master mixer group")]
+    #endregion
+    public AudioMixerGroup musicMasterMixerGroup;
+
+    #region Tooltip
+    [Tooltip("music on full snapshot")]
+    #endregion Tooltip
+    public AudioMixerSnapshot musicOnFullSnapshot;
+
+    #region Tooltip
+    [Tooltip("music low snapshot")]
+    #endregion Tooltip
+    public AudioMixerSnapshot musicLowSnapshot;
+
+    #region Tooltip
+    [Tooltip("music off snapshot")]
+    #endregion Tooltip
+    public AudioMixerSnapshot musicOffSnapshot;
+
+
     #region Header SOUNDS
     [Space(10)]
     [Header("SOUNDS")]
@@ -181,6 +207,10 @@ public class GameResources : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(materializeShader), materializeShader);
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
         HelperUtilities.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(musicMasterMixerGroup), musicMasterMixerGroup);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(musicOnFullSnapshot), musicOnFullSnapshot);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(musicLowSnapshot), musicLowSnapshot);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(musicOffSnapshot), musicOffSnapshot);
         HelperUtilities.ValidateCheckNullValue(this, nameof(heartPrefab), heartPrefab);
         HelperUtilities.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
         HelperUtilities.ValidateCheckNullValue(this, nameof(chestItemPrefab), chestItemPrefab);
@@ -191,5 +221,4 @@ public class GameResources : MonoBehaviour
 
         #endif
     #endregion
-
 }

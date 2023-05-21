@@ -82,7 +82,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
                 InstantiateRoomGameobjects();
             }
         }
-
         return dungeonBuildSuccessful;
     }
 
@@ -244,7 +243,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
             {
                 roomOverlaps = true;
             }
-
         }
 
         return true;  // no room overlaps
@@ -287,8 +285,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
         {
             roomtemplate = GetRandomRoomTemplate(roomNode.roomNodeType);
         }
-
-
         return roomtemplate;
     }
 
@@ -298,7 +294,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
     /// </summary>
     private bool PlaceTheRoom(Room parentRoom, Doorway doorwayParent, Room room)
     {
-
         // Get current room doorway position
         Doorway doorway = GetOppositeDoorway(doorwayParent, room.doorWayList);
 
@@ -368,7 +363,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
 
             return false;
         }
-
     }
 
 
@@ -397,9 +391,7 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
                 return doorwayToCheck;
             }
         }
-
         return null;
-
     }
 
 
@@ -423,11 +415,7 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
                 return room;
             }
         }
-
-
-        // Return
         return null;
-
     }
 
 
@@ -448,7 +436,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
         {
             return false;
         }
-
     }
 
 
@@ -492,7 +479,6 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
 
         // Select random room template from list and return
         return matchingRoomTemplateList[UnityEngine.Random.Range(0, matchingRoomTemplateList.Count)];
-
     }
 
 
