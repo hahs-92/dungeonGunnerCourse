@@ -63,6 +63,7 @@ MonoBehaviour:
   healthPickup: {fileID: 11400000, guid: acab78af8148faf45a73e1b7436d0719, type: 2}
   weaponPickup: {fileID: 11400000, guid: 1303e50e8ea408d4694110698e409b5f, type: 2}
   ammoPickup: {fileID: 11400000, guid: 106b84135df95ea45bf45bcab159ce85, type: 2}
+  scorePrefab: {fileID: 802750718097863433, guid: 51d88e468cf4a384abee1044faafe60d, type: 3}
   dimmedMaterial: {fileID: 2100000, guid: fd5ae752e16da36428c7ae98c49dc19e, type: 2}
   litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   variableLitShader: {fileID: -6465566751694194690, guid: 0e50c1e690d508c41b5ef5ceb55bbd23, type: 3}

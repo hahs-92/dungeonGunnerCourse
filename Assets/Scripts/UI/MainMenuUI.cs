@@ -3,6 +3,27 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    #region Header OBJECT REFERENCES
+    [Space(10)]
+    [Header("OBJECT REFERENCES")]
+    #endregion Header OBJECT REFERENCES
+    #region Tooltip
+    [Tooltip("Populate with the enter the dungeon play button gameobject")]
+    #endregion Tooltip
+    [SerializeField] private GameObject playButton;
+
+    #region Tooltip
+    [Tooltip("Populate with the high scores button gameobject")]
+    #endregion
+    [SerializeField] private GameObject highScoresButton;
+
+    #region Tooltip
+    [Tooltip("Populate with the return to main menu button gameobject")]
+    #endregion
+    [SerializeField] private GameObject returnToMainMenuButton;
+
+    private bool isHighScoresSceneLoaded = false;
+
     private void Start()
     {
         // Play Music
@@ -10,6 +31,8 @@ public class MainMenuUI : MonoBehaviour
 
         // Load Character selector scene additively
         SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
+
+        returnToMainMenuButton.SetActive(false);
     }
 
     /// <summary>
@@ -19,4 +42,53 @@ public class MainMenuUI : MonoBehaviour
     {
         SceneManager.LoadScene("MainGameScene");
     }
+
+    /// <summary>
+    /// Called from the High Scores Button
+    /// </summary>
+    public void LoadHighScores()
+    {
+        playButton.SetActive(false);
+        highScoresButton.SetActive(false);
+        isHighScoresSceneLoaded = true;
+
+        SceneManager.UnloadSceneAsync("CharacterSelectorScene");
+        returnToMainMenuButton.SetActive(true);
+
+        // Load High Score scene additively
+        SceneManager.LoadScene("HighScoreScene", LoadSceneMode.Additive);
+    }
+
+    /// <summary>
+    /// Called from the Return To Main Menu Button
+    /// </summary>
+    public void LoadCharacterSelector()
+    {
+        returnToMainMenuButton.SetActive(false);
+
+        if (isHighScoresSceneLoaded)
+        {
+            SceneManager.UnloadSceneAsync("HighScoreScene");
+            isHighScoresSceneLoaded = false;
+        }
+
+
+        playButton.SetActive(true);
+        highScoresButton.SetActive(true);
+
+        // Load character selector scene additively
+        SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
+    }
+
+    #region Validation
+#if UNITY_EDITOR
+    // Validate the scriptable object details entered
+    private void OnValidate()
+    {
+        HelperUtilities.ValidateCheckNullValue(this, nameof(playButton), playButton);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(highScoresButton), highScoresButton);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(returnToMainMenuButton), returnToMainMenuButton);
+    }
+#endif
+    #endregion
 }

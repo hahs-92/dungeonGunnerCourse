@@ -594,18 +594,48 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         // Disable player
         GetPlayer().playerControl.DisablePlayer();
 
+        int rank = HighScoreManager.Instance.GetRank(gameScore);
+        string rankText;
+
+        // Test if the score is in the rankings
+        if (rank > 0 && rank <= Settings.numberOfHighScoresToSave)
+        {
+            rankText = "YOUR SCORE IS RANKED " + rank.ToString("#0") + " IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
+
+            string name = GameResources.Instance.currentPlayer.playerName;
+
+            if (name == "")
+            {
+                name = playerDetails.playerCharacterName.ToUpper();
+            }
+
+            // Update scores
+            HighScoreManager.Instance.AddScore(new Score() { 
+                playerName = name, 
+                levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), 
+                playerScore = gameScore 
+            }, rank);
+        }
+        else
+        {
+            rankText = "YOUR SCORE ISN'T RANKED IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
+        }
+
+        // Wait 1 seconds
+        yield return new WaitForSeconds(1f);
+
         // Fade Out
         yield return StartCoroutine(Fade(0f, 1f, 2f, Color.black));
 
         // Display game won
-        yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU HAVE DEFEATED THE DUNGEON", Color.white, 3f));
+        yield return StartCoroutine(DisplayMessageRoutine(
+            "WELL DONE " + 
+            GameResources.Instance.currentPlayer.playerName + "! YOU HAVE DEFEATED THE DUNGEON", Color.white, 3f)
+        );
 
-        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED " + gameScore.ToString("###,###0"), Color.white, 4f));
+        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f));
 
         yield return StartCoroutine(DisplayMessageRoutine("PRESS RETURN TO RESTART THE GAME", Color.white, 0f));
-
-        // Wait 10 seconds
-        yield return new WaitForSeconds(10f);
 
         // Set game state to restart game
         gameState = GameState.restartGame;
@@ -620,6 +650,30 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
         // Disable player
         GetPlayer().playerControl.DisablePlayer();
+
+        // Get rank
+        int rank = HighScoreManager.Instance.GetRank(gameScore);
+        string rankText;
+
+        // Test if the score is in the rankings
+        if (rank > 0 && rank <= Settings.numberOfHighScoresToSave)
+        {
+            rankText = "YOUR SCORE IS RANKED " + rank.ToString("#0") + " IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
+
+            string name = GameResources.Instance.currentPlayer.playerName;
+
+            if (name == "")
+            {
+                name = playerDetails.playerCharacterName.ToUpper();
+            }
+
+            // Update scores
+            HighScoreManager.Instance.AddScore(new Score() { playerName = name, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore }, rank);
+        }
+        else
+        {
+            rankText = "YOUR SCORE ISN'T RANKED IN THE TOP " + Settings.numberOfHighScoresToSave.ToString("#0");
+        }
 
         // Wait 10 seconds
         yield return new WaitForSeconds(1f);
@@ -642,7 +696,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 "! YOU HAVE SUCCUMBED TO THE DUNGEON", Color.white, 2f)
             );
 
-        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED " + gameScore.ToString("###,###0"), Color.white, 4f));
+        yield return StartCoroutine(DisplayMessageRoutine(
+            "YOU SCORED " + 
+            gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f)
+        );
 
         yield return StartCoroutine(DisplayMessageRoutine("PRESS RETURN TO RESTART THE GAME", Color.white, 0f));
 
