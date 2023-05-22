@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PauseMenuUI : MonoBehaviour
@@ -44,6 +45,12 @@ public class PauseMenuUI : MonoBehaviour
         // Initialise UI text
         soundsLevelText.SetText(SoundEffectManager.Instance.soundsVolume.ToString());
         musicLevelText.SetText(MusicManager.Instance.musicVolume.ToString());
+    }
+
+    // Quit and load main menu - linked to from pause menu UI button
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     /// <summary>

@@ -49,6 +49,11 @@ public class GameResources : MonoBehaviour
     public AudioMixerGroup musicMasterMixerGroup;
 
     #region Tooltip
+    [Tooltip("Main menu music scriptable object")]
+    #endregion Tooltip
+    public MusicTrackSO mainMenuMusic;
+
+    #region Tooltip
     [Tooltip("music on full snapshot")]
     #endregion Tooltip
     public AudioMixerSnapshot musicOnFullSnapshot;
@@ -195,6 +200,7 @@ public class GameResources : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(roomNodeTypeList), roomNodeTypeList);
         HelperUtilities.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
         HelperUtilities.ValidateCheckNullValue(this, nameof(soundsMasterMixerGroup), soundsMasterMixerGroup);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(mainMenuMusic), mainMenuMusic);
         HelperUtilities.ValidateCheckNullValue(this, nameof(doorOpenCloseSoundEffect), doorOpenCloseSoundEffect);
         HelperUtilities.ValidateCheckNullValue(this, nameof(tableFlip), tableFlip);
         HelperUtilities.ValidateCheckNullValue(this, nameof(chestOpen), chestOpen);
