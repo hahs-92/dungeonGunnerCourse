@@ -13,15 +13,26 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject playButton;
 
     #region Tooltip
+    [Tooltip("Populate with the quit button gameobject")]
+    #endregion
+    [SerializeField] private GameObject quitButton;
+
+    #region Tooltip
     [Tooltip("Populate with the high scores button gameobject")]
     #endregion
     [SerializeField] private GameObject highScoresButton;
+
+    #region Tooltip
+    [Tooltip("Populate with the instructions button gameobject")]
+    #endregion
+    [SerializeField] private GameObject instructionsButton;
 
     #region Tooltip
     [Tooltip("Populate with the return to main menu button gameobject")]
     #endregion
     [SerializeField] private GameObject returnToMainMenuButton;
 
+    private bool isInstructionSceneLoaded = false;
     private bool isHighScoresSceneLoaded = false;
 
     private void Start()
@@ -49,7 +60,9 @@ public class MainMenuUI : MonoBehaviour
     public void LoadHighScores()
     {
         playButton.SetActive(false);
+        quitButton.SetActive(false);
         highScoresButton.SetActive(false);
+        instructionsButton.SetActive(false);
         isHighScoresSceneLoaded = true;
 
         SceneManager.UnloadSceneAsync("CharacterSelectorScene");
@@ -71,13 +84,46 @@ public class MainMenuUI : MonoBehaviour
             SceneManager.UnloadSceneAsync("HighScoreScene");
             isHighScoresSceneLoaded = false;
         }
-
+        else if (isInstructionSceneLoaded)
+        {
+            SceneManager.UnloadSceneAsync("InstructionsScene");
+            isInstructionSceneLoaded = false;
+        }
 
         playButton.SetActive(true);
+        quitButton.SetActive(true);
         highScoresButton.SetActive(true);
+        instructionsButton.SetActive(true);
 
         // Load character selector scene additively
         SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
+    }
+
+    /// <summary>
+    /// Called from the Instructions Button
+    /// </summary>
+    public void LoadInstructions()
+    {
+        playButton.SetActive(false);
+        quitButton.SetActive(false);
+        highScoresButton.SetActive(false);
+        instructionsButton.SetActive(false);
+        isInstructionSceneLoaded = true;
+
+        SceneManager.UnloadSceneAsync("CharacterSelectorScene");
+
+        returnToMainMenuButton.SetActive(true);
+
+        // Load instructions scene additively
+        SceneManager.LoadScene("InstructionsScene", LoadSceneMode.Additive);
+    }
+
+    /// <summary>
+    /// Quit the game - this method is called from the onClick event set in the inspector
+    /// </summary>
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     #region Validation
@@ -85,8 +131,11 @@ public class MainMenuUI : MonoBehaviour
     // Validate the scriptable object details entered
     private void OnValidate()
     {
+
         HelperUtilities.ValidateCheckNullValue(this, nameof(playButton), playButton);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(quitButton), quitButton);
         HelperUtilities.ValidateCheckNullValue(this, nameof(highScoresButton), highScoresButton);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(instructionsButton), instructionsButton);
         HelperUtilities.ValidateCheckNullValue(this, nameof(returnToMainMenuButton), returnToMainMenuButton);
     }
 #endif
